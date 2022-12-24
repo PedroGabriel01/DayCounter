@@ -1,3 +1,14 @@
-<div>
+<div style="height: 100%; width: 100%;">
+  <div>
+    <input #date type="datetime-local" (change)="setSelectedDate(getValue($event))" [value]="setValueDate()">
+  </div>
   
+  <div class="d-flex justify-content-center">
+    <p>{{seconds}} - Segundos</p>
+    <p>{{minutes}} - Minutos</p>
+    <p>{{hours}} - Horas</p>
+    <p>{{days}} - Dias</p>
+    <p>{{weeks}} - Semanas</p>
+    <p>{{timeToDate | date:"dd/MM/yyyy HH:mm:ss"}}</p>
+  </div>
 </div>
