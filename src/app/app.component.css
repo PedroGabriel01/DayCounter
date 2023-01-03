@@ -1,4 +1,30 @@
-* {
-    margin: 0;
-    padding: 0;
+.max-height {
+    height: 100%;
+}
+
+.count-div {
+    height: 50%;
+    background-color: cadetblue;
+}
+
+.input-div {
+    height: 30%;
+    background-color: bisque;
+}
+
+.total-div {
+    height: 30%;
+    background-color: darkslategray;
+}
+
+.center {
+    position: relative;
+    left: 50%;
+    top: 50%;
+}
+
+#counter {
+    color: white;
+    font-weight: bolder;
+    font-size: 40px;
 }
