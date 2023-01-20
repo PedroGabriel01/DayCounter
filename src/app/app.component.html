@@ -1,15 +1,22 @@
-<div class="max-height">
-  <div class="count-div">
-    <span id="counter" class="center">{{timeToDate | date:"dd/MM/yyyy HH:mm:ss"}}</span>
+  <div class="vh-100">
+    <div class="row align-items-center fixed-top h-5 bg-2 c-0">
+      <div class="col-md-12">
+        <h1 class="fw-b fs-4">Day++</h1>
+      </div>
+    </div>
+    <div class="vh-100 d-flex justify-content-center align-items-center bg-3 c-0">
+      <div class="fw-b fs-1">
+        {{timeToDate | date:"dd/MM/yyyy HH:mm:ss"}}
+      </div>
+      <div class="position-relative pt-0">
+        <input type="datetime-local" (change)="setSelectedDate(getValue($event))" [value]="setValueDate()">
+      </div>
+    </div>
+    <div class="h-25 bg-2 c-0 p-2">
+      <p>{{seconds}} - Segundos</p>
+      <p>{{minutes}} - Minutos</p>
+      <p>{{hours}} - Horas</p>
+      <p>{{days}} - Dias</p>
+      <p>{{weeks}} - Semanas</p>
+    </div>
   </div>
-  <div class="input-div">
-    <input class="center" type="datetime-local" (change)="setSelectedDate(getValue($event))" [value]="setValueDate()">
-  </div>
-  <div class="total-div">
-    <p>{{seconds}} - Segundos</p>
-    <p>{{minutes}} - Minutos</p>
-    <p>{{hours}} - Horas</p>
-    <p>{{days}} - Dias</p>
-    <p>{{weeks}} - Semanas</p>
-  </div>
-</div>

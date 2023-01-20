@@ -3,6 +3,112 @@
     margin: 0;
 }
 
-.max-height {
-    height: 100%;
+.row {
+    padding: 0;
+    margin: 0;
+}
+
+:root {
+    --color-00: white;
+    --color-01: #0A0708;
+    --color-02: #444444;
+    --color-03: #747474;
+    --color-04: #B1B1B1;
+
+    --font-size-10 : 10px;
+    --font-size-20 : 20px;
+    --font-size-30 : 30px;
+    --font-size-40 : 40px;
+}
+
+.bg-0 {
+    background-color: var(--color-00);
+}
+
+.bg-1 {
+    background-color: var(--color-01);
+}
+
+.bg-2 {
+    background-color: var(--color-02);
+}
+
+.bg-3 {
+    background-color: var(--color-03);
+}
+
+.bg-4 {
+    background-color: var(--color-04);
+}
+
+.c-0 {
+    color: var(--color-00);
+}
+
+.c-1 {
+    color: var(--color-00);
+}
+
+.c-2 {
+    color: var(--color-02);
+}
+
+.c-3 {
+    color: var(--color-03);
+}
+
+.c-4 {
+    color: var(--color-04);
+}
+
+.h-5 {
+    height: 5%;
+}
+
+.h-10 {
+    height: 10%;
+}
+
+.h-15 {
+    height: 15%;
+}
+
+.h-20 {
+    height: 20%;
+}
+
+.fw-b {
+    font-weight: bold;
+}
+
+.fs-1 {
+    font-size: var(--font-size-10);
+}
+
+.fs-2 {
+    font-size: var(--font-size-20);
+}
+
+.fs-3 {
+    font-size: var(--font-size-30);
+}
+
+.fs-4 {
+    font-size: var(--font-size-40);
+}
+
+.pt-0 {
+    top: 0;
+}
+
+.pt-1 {
+    top: 10%;
+}
+
+.pt-2 {
+    top: 20%;
+}
+
+.pt-3 {
+    top: 30%;
 }
