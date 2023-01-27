@@ -6,17 +6,17 @@
     </div>
     <div class="vh-100 d-flex justify-content-center align-items-center bg-3 c-0">
       <div class="fw-b fs-1">
-        {{timeToDate | date:"dd/MM/yyyy HH:mm:ss"}}
+        {{stimeToDate}}
       </div>
-      <div class="position-relative pt-0">
+      <div class="h-95 pt-0 d-flex align-items-end" style="position: absolute;">
         <input type="datetime-local" (change)="setSelectedDate(getValue($event))" [value]="setValueDate()">
       </div>
     </div>
     <div class="h-25 bg-2 c-0 p-2">
-      <p>{{seconds}} - Segundos</p>
-      <p>{{minutes}} - Minutos</p>
-      <p>{{hours}} - Horas</p>
-      <p>{{days}} - Dias</p>
-      <p>{{weeks}} - Semanas</p>
+      <p>{{totalSeconds}} - Segundos</p>
+      <p>{{totalMinutes}} - Minutos</p>
+      <p>{{totalHours}} - Horas</p>
+      <p>{{totalDays}} - Dias</p>
+      <p>{{totalWeeks}} - Semanas</p>
     </div>
   </div>

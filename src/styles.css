@@ -77,6 +77,22 @@
     height: 20%;
 }
 
+.h-80 {
+    height: 80%;
+}
+
+.h-85 {
+    height: 85%;
+}
+
+.h-90 {
+    height: 90%;
+}
+
+.h-95 {
+    height: 95%;
+}
+
 .fw-b {
     font-weight: bold;
 }

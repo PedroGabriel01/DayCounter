@@ -11,12 +11,14 @@ export class AppComponent implements OnInit {
 
   selectedDate: Date = new Date();
   timeToDate: Date = new Date();
-  seconds: number = 0;
-  minutes: number = 0;
-  hours: number = 0;
-  days: number = 0;
-  weeks: number = 0;
-  months: number = 0;
+  totalSeconds: number = 0;
+  totalMinutes: number = 0;
+  totalHours: number = 0;
+  totalDays: number = 0;
+  totalWeeks: number = 0;
+  totalMonths: number = 0;
+
+  stimeToDate: String = "00/00/00 00:00:00";
 
   ngOnInit(): void {
     this.getStorageDate();
@@ -45,25 +47,41 @@ export class AppComponent implements OnInit {
 
   calculate() {
     setTimeout(() => {
-      // console.log(moment(this.selectedDate).subtract(new Date().getTime()).format("yyyy-MM-DDTHH:mm:ss"));
-      
-      // this.timeToDate = new Date(this.selectedDate.getTime() - new Date().getTime());
-      const now = new Date();
-      this.timeToDate = new Date(this.selectedDate);
-      this.timeToDate.setFullYear(this.timeToDate.getFullYear() - now.getFullYear());
-      this.timeToDate.setMonth(this.timeToDate.getMonth() - now.getMonth());
-      this.timeToDate.setDate(this.timeToDate.getDate() - now.getDate());
-      this.timeToDate.setHours(this.timeToDate.getHours() - now.getHours());
-      this.timeToDate.setMinutes(this.timeToDate.getMinutes() - now.getMinutes());
-      this.timeToDate.setSeconds(this.timeToDate.getSeconds() - now.getSeconds());
-      this.seconds = Math.ceil((this.selectedDate.getTime() - now.getTime()) / 1000);
-      this.minutes = Math.ceil(this.seconds / 60);
-      this.hours = Math.floor(this.minutes / 60);
-      this.days = Math.floor(this.hours / 24);
-      this.weeks = Math.floor(this.days / 7);
-      // this.months = Math.ceil(this.days)
+      const date1 = moment(this.selectedDate);
+      const date2 = moment();
 
+      this.timer(date1, date2);
+      this.total(date1, date2);
       this.calculate();
     }, 1000);
+  }
+
+  timer(date1: moment.Moment, date2: moment.Moment) {
+    let seconds = date1.diff(date2, "seconds");
+    let minutes = seconds / 60;
+    let hours = minutes / 60;
+    let days = hours / 24;
+    
+    seconds = Math.floor(seconds % 60);
+    minutes = Math.floor(minutes % 60);
+    hours = Math.floor(hours % 24);
+    days = Math.floor(days % 24);
+
+    for (let monthCounter = date1.month(); monthCounter < date2.month(); monthCounter++) {
+      //Pegar total de dias 
+      //Se total de dias for maior ou igual ao número de dias no mês
+      //Subtrair esses dias do total de dias e somar 1 mês
+    }
+
+    this.stimeToDate = `${days}/00/00 ${hours}:${minutes}:${seconds}`;
+  }
+
+  total(date1: moment.Moment, date2: moment.Moment) {
+    this.totalSeconds = date1.diff(date2, "seconds");
+      this.totalMinutes = date1.diff(date2, "minutes");
+      this.totalHours = date1.diff(date2, "hours");
+      this.totalDays = date1.diff(date2, "days");
+      this.totalWeeks = date1.diff(date2, "weeks");
+      this.totalMonths = date1.diff(date2, "months");
   }
 }
