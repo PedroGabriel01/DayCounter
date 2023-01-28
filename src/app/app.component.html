@@ -12,11 +12,23 @@
         <input type="datetime-local" (change)="setSelectedDate(getValue($event))" [value]="setValueDate()">
       </div>
     </div>
-    <div class="h-25 bg-2 c-0 p-2">
-      <p>{{totalSeconds}} - Segundos</p>
-      <p>{{totalMinutes}} - Minutos</p>
-      <p>{{totalHours}} - Horas</p>
-      <p>{{totalDays}} - Dias</p>
-      <p>{{totalWeeks}} - Semanas</p>
+    <div class="h-20 bg-2 c-0 p-2">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="row">
+            <div class="col-md-12"><p>{{totalSeconds}} - Segundos</p></div>
+            <div class="col-md-12"><p>{{totalMinutes}} - Minutos</p></div>
+            <div class="col-md-12"><p>{{totalHours}} - Horas</p></div>
+            <div class="col-md-12"><p>{{totalDays}} - Dias</p></div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="row">
+            <div class="col-md-12"><p>{{totalWeeks}} - Semanas</p></div>
+            <div class="col-md-12"><p>{{totalMonths}} - Meses</p></div>
+            <div class="col-md-12"><p>{{totalYears}} - Anos</p></div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
