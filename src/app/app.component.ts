@@ -17,6 +17,7 @@ export class AppComponent implements OnInit {
   totalDays: number = 0;
   totalWeeks: number = 0;
   totalMonths: number = 0;
+  totalYears: number = 0;
 
   stimeToDate: String = "00/00/00 00:00:00";
 
@@ -47,8 +48,15 @@ export class AppComponent implements OnInit {
 
   calculate() {
     setTimeout(() => {
-      const date1 = moment(this.selectedDate);
-      const date2 = moment();
+      let date1 = moment(this.selectedDate);
+      let date2 = moment();
+      // const date2 = moment('2023-01-20', 'yyyy-MM-DD');
+
+      if (!date1.isSameOrAfter(date2)) {
+        let dateAux = date2.clone();
+        date2 = date1.clone();
+        date1 = dateAux.clone();
+      }
 
       this.timer(date1, date2);
       this.total(date1, date2);
@@ -65,15 +73,21 @@ export class AppComponent implements OnInit {
     seconds = Math.floor(seconds % 60);
     minutes = Math.floor(minutes % 60);
     hours = Math.floor(hours % 24);
-    days = Math.floor(days % 24);
+    let month = date1.diff(date2, "months");
+    month = month % 12;
 
-    for (let monthCounter = date1.month(); monthCounter < date2.month(); monthCounter++) {
-      //Pegar total de dias 
-      //Se total de dias for maior ou igual ao número de dias no mês
-      //Subtrair esses dias do total de dias e somar 1 mês
+    console.log(date1.date());
+
+    if (date1.date() >= date2.date()) {
+      days = date1.date() - date2.date();
+    } else {
+      const daysToTheEndOfMonth = date2.daysInMonth() - date2.date();
+      days = date1.date() + daysToTheEndOfMonth;
     }
 
-    this.stimeToDate = `${days}/00/00 ${hours}:${minutes}:${seconds}`;
+    let year = date1.diff(date2, "years");
+
+    this.stimeToDate = `${days.toString().padStart(2, "0")}/${month.toString().padStart(2, "0")}/${year.toString().padStart(4, "0")} ${hours.toString().padStart(2, "0")}:${minutes.toString().padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`;
   }
 
   total(date1: moment.Moment, date2: moment.Moment) {
